@@ -6,7 +6,7 @@ ${URL}    https://www.saucedemo.com/
 
 *** Keywords ***
 Abrir o Navegador
-    Open Browser    browser=chrome
+    Open Browser    ${URL}    chrome
     Maximize Browser Window
 
 Fechar o Navegador
@@ -14,7 +14,6 @@ Fechar o Navegador
     Close Browser
 
 Acessar a home page https://www.saucedemo.com/
-    Go To    url=${URL}
     Wait Until Element Is Visible    locator=//div[@class='login_logo'][contains(.,'Swag Labs')]
     
 Preencher o "Username" e o "Password"
@@ -52,3 +51,4 @@ Clicar em "Finish"
 
 Verificar se a compra foi concluída
     Element Should Be Visible    locator=//h2[@class='complete-header'][contains(.,'Thank you for your order!')]
+    Sleep    time_=10s
