@@ -18,4 +18,3 @@ Caso de Teste - Fazer login e concluir compra
     Clicar em "Continue"
     Clicar em "Finish"
     Verificar se a compra foi concluída
-
