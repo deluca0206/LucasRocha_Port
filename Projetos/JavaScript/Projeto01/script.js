@@ -19,4 +19,5 @@ function generateQuote() {
 
 newQuoteButton.addEventListener("click", generateQuote);
 
+
   
