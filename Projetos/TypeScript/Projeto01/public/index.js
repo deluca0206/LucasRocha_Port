@@ -1,8 +1,28 @@
 "use strict";
+let myAge = 33;
+console.log(myAge);
+let myAge2 = 33;
+myAge2 = '33';
+console.log(myAge2);
+let myName = 'Lucas';
+console.log(myName);
+let myName2 = 'Lucas';
+myName2 = true;
+console.log(myName2);
+let names = [];
+names.push('Lucas');
+names.push(true);
+console.log(names);
 let person = {
-    name: 'Lucas',
-    age: '33',
+    Nome: 'Lucas',
+    Idade: 33,
+    isAdmin: true,
+};
+console.log(person);
+let person2;
+person2 = {
+    Nome: 'Lucas',
+    Idade: 33,
     isAdmin: true
 };
-person.name = 'Lucas Rocha';
-console.log(person);
+console.log(person2);

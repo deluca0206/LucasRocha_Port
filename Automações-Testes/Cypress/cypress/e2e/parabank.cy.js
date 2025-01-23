@@ -19,7 +19,7 @@ describe('Faz cadastro Parabank', () => {
         
         cy.visit("https://parabank.parasoft.com/parabank/index.htm")
 
-        cy.xpath("//a[contains(.,'Register')]").should("be.visible").click()
+        cy.get('a[href*="register.htm;jsessionid="]').click()
         cy.xpath("//h1[@class='title'][contains(.,'Signing up is easy!')]").should("be.visible")
         
         cy.get('#customer\\.firstName').type(randomfName)
