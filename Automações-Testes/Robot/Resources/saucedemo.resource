@@ -9,6 +9,7 @@ Abrir o Navegador
     Open Browser    ${URL}    chrome
 
 Fechar o Navegador
+    Capture Page Screenshot    
     Close Browser
 
 Acessar a home page
@@ -17,7 +18,7 @@ Acessar a home page
 
 Fazer login
     [Arguments]    ${username}    ${password}
-    Input Text    id=username    ${username}
+    Input Text    id=user-name    ${username}
     Input Text    id=password    ${password}
     Click Button    id=login-button
 
@@ -25,7 +26,7 @@ Adicionar produto no carrinho
     Click Button    xpath=//button[contains(@class, 'btn_inventory')]
 
 Visualizar carrinho
-    Click Link    id=shopping_cart_container
+    Click Element    id=shopping_cart_container
 
 Fazer checkout
     [Arguments]    ${first_name}    ${last_name}    ${postal_code}
@@ -39,4 +40,5 @@ Finalizar compra
     Click Button    id=finish
 
 Verificar compra concluída
-    Element Should Be Visible    xpath=//h2[text()='THANK YOU FOR YOUR ORDER']
+    Element Should Be Visible    xpath=//h2[@class='complete-header'][contains(.,'Thank you for your order!')]
+    
