@@ -7,11 +7,14 @@ Cypress.Commands.add('criarTransacao', (descricao, valor) => {
   })
   
   Cypress.Commands.add('deletarTransacoes', () => {
-      for (let i = 0; i < 5; i++) {
-          cy.get('[data-index="0"] > :nth-child(4) > img').click();
-          cy.wait(1000)
-      }
-  })
+    cy.get('body').then($body => {
+        if ($body.find('[data-index="0"] > :nth-child(4) > img').length > 0) {
+            cy.get('[data-index="0"] > :nth-child(4) > img').click();
+            cy.wait(1000);
+            cy.deletarTransacoes(); // Chama a função novamente para deletar a próxima transação
+        }
+    });
+});
   
   Cypress.Commands.add('deletarTransacoesEsp',(descricao) => {
           cy.contains('tr', descricao).find(':nth-child(4) > img').click();
