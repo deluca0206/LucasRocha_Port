@@ -1,6 +1,6 @@
 Cypress.Commands.add('removeTask', (taskName) => {
     cy.get('[data-testid="task-item"]').each(($task) => {
-        if ($task.find('p').text().trim() === taskName) {
+        if ($task.find('p').text() === taskName) {
             cy.wrap($task).find('button[class*="_listItemDeleteButton"]').click();
             cy.contains('p', taskName).should('not.exist');
         }

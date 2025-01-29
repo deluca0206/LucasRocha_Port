@@ -7,8 +7,7 @@ describe('tasks', () => {
         let testData;
         
 
-        beforeEach(() => {
-            
+        beforeEach(() => {            
             cy.fixture('tasks').then(t => {
                 testData = t
             })
