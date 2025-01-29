@@ -24,10 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('lidarComOferta', ()=> {
-    // Tenta localizar o botão "Não, obrigado(a)" e lida com a ausência
+Cypress.Commands.add('lidarComOferta', ()=> { 
     cy.xpath("//input[contains(@aria-labelledby,'attachSiNoCoverage-announce')]", { timeout: 5000 })
-        .should(Cypress._.noop) // No-op para evitar falha no Cypress
+        .should(Cypress._.noop)
         .then(($button) => {
             if ($button.length > 0) {
                 cy.log('Botão encontrado, clicando...');

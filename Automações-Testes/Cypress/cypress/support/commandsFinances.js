@@ -11,7 +11,7 @@ Cypress.Commands.add('criarTransacao', (descricao, valor) => {
         if ($body.find('[data-index="0"] > :nth-child(4) > img').length > 0) {
             cy.get('[data-index="0"] > :nth-child(4) > img').click();
             cy.wait(1000);
-            cy.deletarTransacoes(); // Chama a função novamente para deletar a próxima transação
+            cy.deletarTransacoes();
         }
     });
 });
