@@ -39,3 +39,34 @@ Cypress.Commands.add('lidarComOferta', ()=> {
             }
         });
 })
+
+import { faker } from '@faker-js/faker';
+
+Cypress.Commands.add('generateUserData', () => {
+    return {
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        address: faker.location.streetAddress(),
+        city: faker.location.city(),
+        state: faker.location.state(),
+        zipCode: faker.location.zipCode(),
+        phone: faker.phone.number(),
+        ssn: faker.finance.pin(),
+        username: `${faker.person.firstName()}${faker.person.lastName()}khf`,
+        password: faker.internet.password()
+    };
+});
+
+Cypress.Commands.add('fillRegistrationForm', (userData) => {
+    cy.get('#customer\\.firstName').type(userData.firstName);
+    cy.get('#customer\\.lastName').type(userData.lastName);
+    cy.get('#customer\\.address\\.street').type(userData.address);
+    cy.get('#customer\\.address\\.city').type(userData.city);
+    cy.get('#customer\\.address\\.state').type(userData.state);
+    cy.get('#customer\\.address\\.zipCode').type(userData.zipCode);
+    cy.get('#customer\\.phoneNumber').type(userData.phone);
+    cy.get('#customer\\.ssn').type(userData.ssn);
+    cy.get('#customer\\.username').type(userData.username);
+    cy.get('#customer\\.password').type(userData.password);
+    cy.get('#repeatedPassword').type(userData.password);
+});

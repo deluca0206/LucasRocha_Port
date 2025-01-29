@@ -3,7 +3,14 @@
 describe('tasks', () => {
 
     context('cadastro', () => {
+        
+        let testData;
+        
+
         beforeEach(() => {
+            cy.fixture('tasks').then(t => {
+                testData = t
+            })
             const pageTitle = 'Gerencie suas tarefas com Mark L'
             cy.visit('http://localhost:8080/');
             cy.title().should('eq', pageTitle);
@@ -21,13 +28,9 @@ describe('tasks', () => {
         
         });
     
-        it('não deve cadastrar um tarefa repetida', () => {
+        it('não deve cadastrar um tarefa duplicada', () => {
     
-            const task = {
-                name: 'Estudar Javascript',
-                title: 'Gerencie suas tarefas com Mark L'
-            }
-    
+            const task = testData.dup
             cy.title().should('eq', task.title);
             cy.removeTask(task.name)
             cy.createTask(task.name)
