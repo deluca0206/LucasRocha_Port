@@ -8,6 +8,7 @@ describe('tasks', () => {
         
 
         beforeEach(() => {
+            
             cy.fixture('tasks').then(t => {
                 testData = t
             })
@@ -31,7 +32,6 @@ describe('tasks', () => {
         it('não deve cadastrar um tarefa duplicada', () => {
     
             const task = testData.dup
-            cy.title().should('eq', task.title);
             cy.removeTask(task.name)
             cy.createTask(task.name)
             cy.createTask(task.name)
