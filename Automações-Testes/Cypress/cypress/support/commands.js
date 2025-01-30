@@ -51,7 +51,7 @@ Cypress.Commands.add('generateUserData', () => {
         zipCode: faker.location.zipCode(),
         phone: faker.phone.number(),
         ssn: faker.finance.pin(),
-        username: `${faker.person.firstName()}${faker.person.lastName()}khf`,
+        username: `${faker.person.firstName()}${faker.person.lastName()}hks`,
         password: faker.internet.password()
     };
 });
