@@ -38,7 +38,7 @@ Cypress.Commands.add('lidarComOferta', ()=> {
         });
 })
 
-import { faker } from '@faker-js/faker';
+
 
 Cypress.Commands.add('generateUserData', () => {
     return {
