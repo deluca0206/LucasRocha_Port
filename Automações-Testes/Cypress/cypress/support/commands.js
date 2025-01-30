@@ -25,15 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('lidarComOferta', ()=> { 
-    cy.xpath("//input[contains(@aria-labelledby,'attachSiNoCoverage-announce')]", { timeout: 5000 })
+    cy.get("span#attachSiNoCoverage-announce")
         .should(Cypress._.noop)
         .then(($button) => {
             if ($button.length > 0) {
                 cy.log('Botão encontrado, clicando...');
                 cy.wrap($button).click({ force: true }); 
                 cy.get('div[id="attachDisplayAddBaseAlert"] h4').should('be.visible')
-            } else {
-                cy.log('Botão "Não, obrigado(a)" não encontrado. Continuando o teste...');
+            } else {                
                 cy.contains('h1.a-color-base', 'Adicionado ao carrinho').should('be.visible')
             }
         });

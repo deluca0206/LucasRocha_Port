@@ -17,5 +17,4 @@
 import './commands'
 import './commandsFinances'
 import './commandsTasks'
-require('cypress-xpath');
-
+require('@shelex/cypress-allure-plugin');
